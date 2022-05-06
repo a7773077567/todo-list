@@ -1,0 +1,230 @@
+*,
+*::before,
+*::after {
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+input {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tasks__input, .lists__input {
+  display: flex;
+}
+.tasks__input input[type=text], .lists__input input[type=text] {
+  padding: 0.25em;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+  transition: border-bottom 150ms ease-in;
+}
+.tasks__input input[type=text]:focus, .lists__input input[type=text]:focus {
+  border-bottom-width: 3px;
+}
+.tasks__input input[type=text]:focus::placeholder, .lists__input input[type=text]:focus::placeholder {
+  opacity: 0.15;
+}
+.tasks__input input[type=text]::placeholder, .lists__input input[type=text]::placeholder {
+  color: inherit;
+  opacity: 0.4;
+}
+.tasks__input button[type=button], .lists__input button[type=button] {
+  order: -1;
+}
+
+.tasks__submit, .tasks__button, .lists__submit {
+  padding: 0;
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  color: inherit;
+}
+
+.lists {
+  grid-area: lists;
+}
+.lists__wrapper {
+  line-height: 1.7;
+  font-size: 1.2rem;
+  list-style: circle;
+  padding-left: 1.1em;
+}
+.lists__item {
+  cursor: pointer;
+}
+.lists__item:hover {
+  opacity: 0.7;
+}
+.lists__item--active {
+  font-weight: 700;
+}
+.lists__input {
+  font-size: 1.1rem;
+}
+.lists__submit {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-right: 0.25em;
+  transition: opacity 250ms ease-in;
+}
+.lists__submit:hover {
+  opacity: 0.7;
+}
+
+.tasks {
+  grid-area: tasks;
+  background-color: #f4f4f4;
+  position: relative;
+  color: #333;
+}
+.tasks__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background-color: #e4e4e4;
+}
+.tasks__title {
+  margin: 0 1em 0 0;
+}
+.tasks__counter {
+  font-size: 1rem;
+}
+.tasks__body {
+  padding: 2rem;
+}
+.tasks__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25em;
+}
+.tasks__item:hover > input {
+  transform: scale(1.2);
+  color: rgb(54, 112, 199);
+}
+.tasks__item::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -0.5em;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.1;
+}
+.tasks__item > input {
+  appearance: none;
+  margin-right: 1.25em;
+  width: 1.25em;
+  height: 1.25em;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+  outline: 0;
+}
+.tasks__item > input:focus {
+  transform: scale(1.2);
+  color: rgb(54, 112, 199);
+}
+.tasks__item > input:checked {
+  background-color: rgb(54, 112, 199);
+  border-color: rgb(54, 112, 199);
+  box-shadow: inset 0 0 0 2px white;
+  opacity: 0.5;
+}
+.tasks__item > input:checked + label {
+  opacity: 0.5;
+}
+.tasks__item > input:checked + label::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.tasks__item > label {
+  position: relative;
+}
+.tasks__item > label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  display: block;
+  height: 2px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 200ms ease-in-out;
+}
+.tasks__submit {
+  margin-right: 0.25em;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: rgb(54, 112, 199);
+  transition: opacity 250ms ease-in;
+}
+.tasks__submit:hover {
+  opacity: 0.7;
+}
+.tasks__deletion {
+  position: absolute;
+  left: 0;
+  bottom: -35px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  color: #f4f4f4;
+}
+.tasks__button {
+  font-size: 1rem;
+  opacity: 0.7;
+  transition: color 200ms;
+}
+.tasks__button:hover {
+  color: rgb(99, 36, 36);
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  background-color: rgb(54, 112, 199);
+  color: #f4f4f4;
+  display: grid;
+  grid: "header header header header" auto "...... lists  tasks    ......" auto/1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+}
+
+h1 {
+  grid-area: header;
+  text-align: center;
+  font-size: calc(7vw + 2rem);
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.1);
+  letter-spacing: 2px;
+  margin: -0.3em 0 0.5em;
+}
+
+/*# sourceMappingURL=style.css.map */

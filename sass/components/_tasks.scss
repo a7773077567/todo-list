@@ -1,0 +1,125 @@
+@use "../abstracts";
+
+.tasks {
+  $spacer: 2rem;
+  grid-area: tasks;
+  background-color: abstracts.$clr-light;
+  position: relative;
+  color: abstracts.$clr-dark;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacer;
+    background-color: #e4e4e4;
+  }
+  &__title {
+    margin: 0 1em 0 0;
+  }
+  &__counter {
+    font-size: 1rem;
+  }
+  &__body {
+    padding: $spacer;
+  }
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.25em;
+    &:hover {
+      > input {
+        transform: scale(1.2);
+        color: abstracts.$clr-primary;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: -0.5em;
+      height: 1px;
+      background-color: currentColor;
+      opacity: 0.1;
+    }
+    > input {
+      $size: 1.25em;
+
+      appearance: none;
+      margin-right: $size;
+      width: $size;
+      height: $size;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 250ms ease-in-out;
+      outline: 0;
+      &:focus {
+        transform: scale(1.2);
+        color: abstracts.$clr-primary;
+      }
+      &:checked {
+        background-color: abstracts.$clr-primary;
+        border-color: abstracts.$clr-primary;
+        box-shadow: inset 0 0 0 2px white;
+        opacity: 0.5;
+        + label {
+          opacity: 0.5;
+          &::after {
+            transform: scaleX(1);
+            transform-origin: left;
+          }
+        }
+      }
+    }
+    > label {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        display: block;
+        height: 2px;
+        background-color: currentColor;
+        transform: scaleX(0);
+        transform-origin: right center;
+        transition: transform 200ms ease-in-out;
+      }
+    }
+  }
+  &__input {
+    @extend %todo-input;
+  }
+  &__submit {
+    @extend %todo-button;
+    margin-right: 0.25em;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: abstracts.$clr-primary;
+    transition: opacity 250ms ease-in;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  &__deletion {
+    position: absolute;
+    left: 0;
+    bottom: -35px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    color: abstracts.$clr-light;
+  }
+  &__button {
+    @extend %todo-button;
+    font-size: 1rem;
+    opacity: 0.7;
+    transition: color 200ms;
+    &:hover {
+      color: abstracts.$clr-warning;
+    }
+  }
+}

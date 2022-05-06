@@ -1,0 +1,36 @@
+@use "../abstracts";
+
+.lists {
+  grid-area: lists;
+  &__title {
+  }
+  &__wrapper {
+    line-height: 1.7;
+    font-size: 1.2rem;
+    list-style: circle;
+    padding-left: 1.1em;
+  }
+  &__item {
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+    }
+    &--active {
+      font-weight: 700;
+    }
+  }
+  &__input {
+    @extend %todo-input;
+    font-size: 1.1rem;
+  }
+  &__submit {
+    @extend %todo-button;
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-right: 0.25em;
+    transition: opacity 250ms ease-in;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+%todo-input {
+  display: flex;
+  input[type="text"] {
+    padding: 0.25em;
+    border: 0;
+    border-bottom: 1px solid currentColor;
+    background: transparent;
+    outline: none;
+    color: inherit;
+    font-size: inherit;
+    transition: border-bottom 150ms ease-in;
+    &:focus {
+      border-bottom-width: 3px;
+      &::placeholder {
+        opacity: 0.15;
+      }
+    }
+    &::placeholder {
+      color: inherit;
+      opacity: 0.4;
+    }
+  }
+  button[type="button"] {
+    order: -1;
+  }
+}
